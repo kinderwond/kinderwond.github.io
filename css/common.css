@@ -1,0 +1,33 @@
+
+/* BLOCK STYLES */
+.flex-row {
+    display: flex;    
+}
+.flex-column {
+    display: flex;    
+    flex-direction: column;
+}
+.wrap {
+    flex-wrap: wrap;
+}
+.j-fy-between {
+    justify-content: space-between;
+}
+.j-fy-around {
+    justify-content: space-around;
+}
+.j-fy-center {
+    justify-content: center;
+}
+.mg-center {
+    margin-right:  auto;
+    margin-left:  auto;
+}
+
+/* TEXT STYLES */
+.t-white {
+    color: #fff;
+}
+.t-center {
+    text-align: center;
+}
