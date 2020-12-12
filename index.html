@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/iziToast.min.css">
+</head>
+
+<body>
+    <div id="tooltip" class="t-center"></div>
+    <div id="loader"></div>
+    <div class="wrapper flex-column">
+        <header>
+            <ul class="flex-row j-fy-around">
+                <li onclick="scrollToHome()">Home</li>
+                <li onclick="scrollToAboutMe()">About Me</li>
+                <li onclick="scrollToProjects()">Projects</li>
+                <li onclick="scrollToContacts()">Contacts</li>
+            </ul>
+        </header>
+        <div id="scene">
+            <section class="container-preview flex-row mg-center j-fy-center">
+                <section class="preview-avatar">
+                    <img src="img/test.png" alt="">
+                </section>
+                <section class="preview-title-container">
+                    <p class="t-center" >FULL STACK WEB DEVELOPER</p>
+                    <p class="t-white mg-center t-center">Nedilko Ivan</p>
+                </section>
+
+            </section>
+        </div>
+        <section class="about-me-container flex-column">
+            <h1 class=" block-title t-center mg-center">ABOUT ME</h1>
+            <section class="container-cards mg-center j-fy-center flex-row wrap">
+                <section class="container-card flex-column  education">
+                    <div class="container-title flex-column">
+                        <img class="mg-center" src="./img/icons/education.svg" alt="">
+                        <p class="title t-center">Education:</p>
+                    </div>
+                    <div class="container-content" class="flex-column j-fy-center">
+                        <p class="t-center">Zaporizhzhya National University</p>
+                        <p class="t-center">Bachelor's deegree </p>
+                        <p class="t-center">Software Engineering </p>
+                        <p class="t-center">(2017-2021)</p>
+                    </div>
+                </section>
+                <section class="container-card flex-column  soft-skills">
+                    <div class="container-title flex-column">
+                        <img class="mg-center" src="./img/icons/soft_skills.svg" alt="">
+                        <p class="title t-center">Soft skills</p>
+                    </div>
+                    <div class="container-content">
+                        <ul class="flex-column j-fy-center">
+                            <li class="t-center">Adaptability</li>
+                            <li class="t-center">Collaboration</li>
+                            <li class="t-center">Stress Tolerance</li>
+                            <li class="t-center">Sense of purpose</li>
+                        </ul>
+                    </div>
+                </section>
+                <section class="container-card flex-column  back-end">
+                    <div class="container-title flex-column">
+                        <img class="mg-center" src="./img/icons/server.svg" alt="">
+                        <p class="title t-center">Back-end</p>
+                    </div>
+                    <div class="container-content">
+                        <ul class="flex-column j-fy-center">
+                            <li class="flex-row">
+                                <img src="./img/icons/nodejs.svg" alt="">
+                                <p class="t-center">Nodejs</p>
+                            </li>
+                            <li class="flex-row">
+                                <img src="./img/icons/expressjs.svg" alt="">
+                                <p class="t-center">Expressjs</p>
+                            </li>
+                            <li class="flex-row">
+                                <img src="./img/icons/adonisjs.svg" alt="">
+                                <p class="t-center">Adonisjs</p>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section class="container-card flex-column  front-end">
+                    <div class="container-title flex-column">
+                        <img class="mg-center" src="./img/icons/frontend.svg" alt="">
+                        <p class="title t-center">Front-end</p>
+                    </div>
+                    <div class="container-content">
+                        <ul class="flex-column j-fy-center">
+                            <li class="flex-row">
+                                <img src="./img/icons/vuejs.svg" alt="">
+                                <p class="t-center">Vuejs</p>
+                            </li>
+                            <li class="flex-row">
+                                <img src="./img/icons/nuxtjs.svg" alt="">
+                                <p class="t-center">Nuxtjs</p>
+                            </li>
+                            <li class="flex-row">
+                                <img src="./img/icons/jquery.svg" alt="">
+                                <p class="t-center">JQuery</p>
+                            </li>
+                            <li class="flex-row">
+                                <img src="./img/icons/antdesign.svg" alt="">
+                                <p class="t-center">Ant Design</p>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section class="container-card flex-column  devops">
+                    <div class="container-title flex-column">
+                        <img class="mg-center" src="./img/icons/frontend.svg" alt="">
+                        <p class="title t-center">Dev Ops</p>
+                    </div>
+                    <div class="container-content">
+                        <ul class="flex-column j-fy-center">
+                            <li class="flex-row">
+                                <img src="./img/icons/amazon.svg" alt="">
+                                <p class="t-center">AWS SES</p>
+                            </li>
+                            <li class="flex-row">
+                                <img src="./img/icons/aws.svg" alt="">
+                                <p class="t-center">AWS S3</p>
+                            </li>
+                            <li class="flex-row">
+                                <img src="./img/icons/docker.svg" alt="">
+                                <p class="t-center">Docker(Low)</p>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </section>
+
+        </section>
+        <section class="container-projects flex-column">
+            <H1 class="block-title t-center mg-center">PROJECTS</H1>
+            <section class="container-cards mg-center flex-row wrap">
+                <section class="container-card flex-column zuum">
+                    <div class="gradient-shadow"></div>
+                    <a href="https://zuumapp.com/"><img src="./img/zuum.png" alt=""></a>
+                    <div class="desc">
+                        <p class="t-center">Take part in the adaptive</p>
+                        <p class="t-center">Terms Conditions page</p>
+                        <p class="t-center">Privacy Policy page</p>
+                    </div>
+                </section>
+            </section>
+        </section>
+        <footer class="flex-column">
+            <h1 class="block-title t-center">Contacts</h1>
+            <ul class="list-contacts flex-row mg-center">
+                <li>
+                    <a onclick="copyMail()">
+                        <img src="./img/icons/mail.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/kinderwond">
+                        <img src="./img/icons/github.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://ua.linkedin.com/in/ivan-nedilko-15280118b">
+                        <img src="./img/icons/linkedin.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://t.me/kinderwond">
+                        <img src="./img/icons/telegram.svg" alt="">
+                    </a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+
+    <script src="./js/iziToast.min.js"></script>
+    <script src="./js/script.js"></script>
+
+</body>
+
+</html>
