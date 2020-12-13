@@ -59,6 +59,10 @@ body {
 
 header {
     background: #00133a;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    width: 100%;
 }
 header ul li{
  list-style: none;
@@ -83,7 +87,9 @@ header ul li:hover {
     height: 100%;
     backdrop-filter: blur(5px)
 }
-
+.preview-avatar {
+    width: fit-content;
+}
 .preview-avatar img {
     max-height: 300px;
     width: auto;
@@ -352,16 +358,17 @@ header ul li:hover {
     left: 11%;
 }
 .container-projects .container-cards .zuum:hover a{
-    /* margin: 10px auto 30px auto; */
     top: 10%;
 }
 .container-projects .container-cards .zuum a img {
     max-width: 100%;
 }
 .container-projects .container-cards .zuum .desc{
-    position: absolute;
+    margin: 50px auto 0 auto;
+    position: relative;
     top: 40%;
-    left: 15%;
+    font-size: 18px;
+    line-height: 30px;
     max-height: 0;
     overflow: hidden;
     -webkit-transition: max-height .2s linear;
@@ -386,8 +393,8 @@ footer {
 }
 
 .list-contacts li img {
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
 }
 
 .list-contacts li a {
@@ -430,8 +437,35 @@ footer {
     transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(20px, -20px);
 }
 
+/* success notification */
+.success-notification {
+    background: #00510c !important;
+}
 @media (max-width: 750px) {
     .container-preview {
         flex-direction: column;
+    }
+}
+@media  (max-width: 410px) {
+    header ul li {
+        font-size: 13px;
+    }
+    .preview-title-container p:first-child {
+        font-size: 24px;
+        margin: 10px 0 0 0;
+    }
+    .list-contacts li a {
+        width: 30px;
+        height: 30px;
+    }
+    .list-contacts li a::before {
+        height: 32px;
+    }
+    .list-contacts li a::after {
+        width: 32px;
+    }
+    .list-contacts li img {
+        height: 30px;
+        width: 30px;
     }
 }

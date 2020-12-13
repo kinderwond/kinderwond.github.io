@@ -10,6 +10,7 @@ async function copyMail() {
     let promise = await navigator.clipboard.writeText("i.ndeilko@gmail.com")
     iziToast.show({
         progressBar: false,
+        class: 'success-notification',
         timeout: 3000,
         zindex: 3,
         theme: 'dark',
