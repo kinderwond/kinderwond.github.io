@@ -8,9 +8,23 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/iziToast.min.css">
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-P5JB89D');</script>
+    <!-- End Google Tag Manager -->
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5JB89D" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div id="tooltip" class="t-center"></div>
     <div id="loader"></div>
     <div class="wrapper flex-column">
@@ -28,7 +42,7 @@
                     <img src="img/test.png" alt="">
                 </section>
                 <section class="preview-title-container">
-                    <p class="t-center" >FULL STACK WEB DEVELOPER</p>
+                    <p class="t-center">FULL STACK WEB DEVELOPER</p>
                     <p class="t-white mg-center t-center">Nedilko Ivan</p>
                 </section>
 
@@ -178,7 +192,14 @@
 
     <script src="./js/iziToast.min.js"></script>
     <script src="./js/script.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T485VY78GE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
+        gtag('config', 'G-T485VY78GE');
+    </script>
 </body>
 
 </html>
