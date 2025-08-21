@@ -1,205 +1,146 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/iziToast.min.css">
-    <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-P5JB89D');</script>
-    <!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Запрошення на побачення</title>
+  <style>
+    :root{
+      --bg1:#f0f4ff;
+      --bg2:#e5ecff;
+      --fg:#1b1b1f;
+      --muted:#6b6b6b;
+      --yes:#0059d1;
+      --no:#d12c4a;
+      --card:#ffffffcc;
+      --shadow: 0 10px 30px rgba(0,0,0,.07);
+      --radius: 16px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: -apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display",Inter,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--fg);
+      background: radial-gradient(1200px 800px at 80% -10%, var(--bg2), transparent 60%),
+                  radial-gradient(1200px 800px at -10% 110%, var(--bg1), transparent 60%),
+                  #fff;
+    }
+    .wrap{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px 16px calc(24px + env(safe-area-inset-bottom));
+    }
+    .card{
+      width:100%;
+      max-width:480px;
+      background:var(--card);
+      backdrop-filter: blur(6px);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:20px 18px 16px;
+    }
+    .badge{
+      display:inline-block;
+      font-size:12px;
+      text-transform:uppercase;
+      background:#cce0ff;
+      color:#003366;
+      padding:6px 10px;
+      border-radius:999px;
+      margin-bottom:10px;
+    }
+    h1{ font-size:26px; margin:6px 0 10px }
+    p{ font-size:16px; line-height:1.5 }
+    .actions{
+      display:flex; gap:12px; margin-top:12px;
+    }
+    button{
+      flex:1; font-size:18px; font-weight:600;
+      padding:14px 16px;
+      border-radius:12px; border:0; cursor:pointer;
+      box-shadow: 0 6px 16px rgba(0,0,0,.06);
+    }
+    .yes{ background: var(--yes); color:#fff }
+    .no{ background: var(--no); color:#fff }
+    .note{ margin-top:10px; font-size:13px; color:var(--muted); text-align:center }
+    canvas.burst{position:fixed;inset:0;pointer-events:none;z-index:10}
+  </style>
 </head>
-
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5JB89D" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <div id="tooltip" class="t-center"></div>
-    <div id="loader"></div>
-    <div class="wrapper flex-column">
-        <header>
-            <ul class="flex-row j-fy-around">
-                <li onclick="scrollToHome()">Home</li>
-                <li onclick="scrollToAboutMe()">About Me</li>
-                <li onclick="scrollToProjects()">Projects</li>
-                <li onclick="scrollToContacts()">Contacts</li>
-            </ul>
-        </header>
-        <div id="scene">
-            <section class="container-preview  flex-row mg-center j-fy-center">
-                <section class="preview-avatar mg-center flex-row">
-                    <img src="img/test.png" alt="">
-                </section>
-                <section class="preview-title-container">
-                    <p class="t-center">FULL STACK WEB DEVELOPER</p>
-                    <p class="t-white mg-center t-center">Nedilko Ivan</p>
-                </section>
-
-            </section>
-        </div>
-        <section class="about-me-container flex-column">
-            <h1 class=" block-title t-center mg-center">ABOUT ME</h1>
-            <section class="container-cards mg-center j-fy-center flex-row wrap">
-                <section class="container-card flex-column  education">
-                    <div class="container-title flex-column">
-                        <img class="mg-center" src="./img/icons/education.svg" alt="">
-                        <p class="title t-center">Education:</p>
-                    </div>
-                    <div class="container-content" class="flex-column j-fy-center">
-                        <p class="t-center">Zaporizhzhya National University</p>
-                        <p class="t-center">Bachelor's deegree </p>
-                        <p class="t-center">Software Engineering </p>
-                        <p class="t-center">(2017-2021)</p>
-                    </div>
-                </section>
-                <section class="container-card flex-column  soft-skills">
-                    <div class="container-title flex-column">
-                        <img class="mg-center" src="./img/icons/soft_skills.svg" alt="">
-                        <p class="title t-center">Soft skills</p>
-                    </div>
-                    <div class="container-content">
-                        <ul class="flex-column j-fy-center">
-                            <li class="t-center">Adaptability</li>
-                            <li class="t-center">Collaboration</li>
-                            <li class="t-center">Stress Tolerance</li>
-                            <li class="t-center">Sense of purpose</li>
-                        </ul>
-                    </div>
-                </section>
-                <section class="container-card flex-column  back-end">
-                    <div class="container-title flex-column">
-                        <img class="mg-center" src="./img/icons/server.svg" alt="">
-                        <p class="title t-center">Back-end</p>
-                    </div>
-                    <div class="container-content">
-                        <ul class="flex-column j-fy-center">
-                            <li class="flex-row">
-                                <img src="./img/icons/nodejs.svg" alt="">
-                                <p class="t-center">Nodejs</p>
-                            </li>
-                            <li class="flex-row">
-                                <img src="./img/icons/expressjs.svg" alt="">
-                                <p class="t-center">Expressjs</p>
-                            </li>
-                            <li class="flex-row">
-                                <img src="./img/icons/adonisjs.svg" alt="">
-                                <p class="t-center">Adonisjs</p>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-                <section class="container-card flex-column  front-end">
-                    <div class="container-title flex-column">
-                        <img class="mg-center" src="./img/icons/frontend.svg" alt="">
-                        <p class="title t-center">Front-end</p>
-                    </div>
-                    <div class="container-content">
-                        <ul class="flex-column j-fy-center">
-                            <li class="flex-row">
-                                <img src="./img/icons/vuejs.svg" alt="">
-                                <p class="t-center">Vuejs</p>
-                            </li>
-                            <li class="flex-row">
-                                <img src="./img/icons/nuxtjs.svg" alt="">
-                                <p class="t-center">Nuxtjs</p>
-                            </li>
-                            <li class="flex-row">
-                                <img src="./img/icons/jquery.svg" alt="">
-                                <p class="t-center">JQuery</p>
-                            </li>
-                            <li class="flex-row">
-                                <img src="./img/icons/antdesign.svg" alt="">
-                                <p class="t-center">Ant Design</p>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-                <section class="container-card flex-column  devops">
-                    <div class="container-title flex-column">
-                        <img class="mg-center" src="./img/icons/frontend.svg" alt="">
-                        <p class="title t-center">Dev Ops</p>
-                    </div>
-                    <div class="container-content">
-                        <ul class="flex-column j-fy-center">
-                            <li class="flex-row">
-                                <img src="./img/icons/amazon.svg" alt="">
-                                <p class="t-center">AWS SES</p>
-                            </li>
-                            <li class="flex-row">
-                                <img src="./img/icons/aws.svg" alt="">
-                                <p class="t-center">AWS S3</p>
-                            </li>
-                            <li class="flex-row">
-                                <img src="./img/icons/docker.svg" alt="">
-                                <p class="t-center">Docker(Low)</p>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-            </section>
-
-        </section>
-        <section class="container-projects flex-column">
-            <H1 class="block-title t-center mg-center">PROJECTS</H1>
-            <section class="container-cards mg-center flex-row wrap">
-                <section class="container-card flex-column zuum">
-                    <a href="https://zuumapp.com/"><img src="./img/zuum.png" alt=""></a>
-                    <div class="desc">
-                        <p class="t-center">Take part in the adaptive</p>
-                        <p class="t-center">Terms Conditions page</p>
-                        <p class="t-center">Privacy Policy page</p>
-                    </div>
-                </section>
-            </section>
-        </section>
-        <footer class="flex-column">
-            <h1 class="block-title t-center">Contacts</h1>
-            <ul class="list-contacts flex-row mg-center">
-                <li>
-                    <a onclick="copyMail()">
-                        <img src="./img/icons/mail.svg" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/kinderwond">
-                        <img src="./img/icons/github.svg" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="https://ua.linkedin.com/in/ivan-nedilko-15280118b">
-                        <img src="./img/icons/linkedin.svg" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="https://t.me/kinderwond">
-                        <img src="./img/icons/telegram.svg" alt="">
-                    </a>
-                </li>
-            </ul>
-        </footer>
+<div class="wrap">
+  <div class="card">
+    <span class="badge">Запрошення</span>
+    <h1>О Божественна та неповторна Ніка 🤖</h1>
+    <p>Маю сміливість запросити вас на зустріч на цих вихідних задля підвищення вашого гормонального фону та задоволення оргазмами ваші смакові рецептори
+      якимсь людьським десертом
+    </p>
+    <div class="actions">
+      <button class="yes" id="yesBtn">За деталями в особисті</button>
+      <button class="no" id="noBtn">Не люблю десерти</button>
     </div>
+    <div class="note" id="status"></div>
+  </div>
+</div>
+<canvas class="burst" id="burst"></canvas>
 
-    <script src="./js/iziToast.min.js"></script>
-    <script src="./js/script.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T485VY78GE"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+<script>
+  const ENDPOINT = "http://178.212.195.26:3000/invite"; 
 
-        gtag('config', 'G-T485VY78GE');
-    </script>
+  const statusEl = document.getElementById('status');
+  const yesBtn = document.getElementById('yesBtn');
+  const noBtn = document.getElementById('noBtn');
+
+  function payload(answer){
+    return {
+      answer,
+    };
+  }
+
+  async function send(answer){
+    statusEl.textContent = "Надсилаю...";
+    try{
+      await fetch(ENDPOINT,{
+        method:"POST",
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify(payload(answer))
+      });
+      statusEl.textContent = answer==="yes"?"Юху! Відповідь “так” надіслано 🤖":"Шкода 😔 Відповідь “ні” надіслано";
+      if(answer==="yes") burstAI();
+    }catch(e){
+      statusEl.textContent = "Помилка відправки";
+    }
+  }
+
+  yesBtn.onclick=()=>send(true);
+  noBtn.onclick=()=>send(false);
+
+  function burstAI(){
+    const c = document.getElementById('burst');
+    const ctx = c.getContext('2d');
+    c.width=window.innerWidth; c.height=window.innerHeight;
+    const icons = ["🤖","🧠","💡","⚡️","📡","🔮"];
+    const parts = Array.from({length:24},()=>({
+      x:Math.random()*c.width,
+      y:c.height+20,
+      vy:-2-Math.random()*2,
+      vx:(Math.random()-.5)*1.5,
+      emo:icons[(Math.random()*icons.length)|0],
+      life:60+Math.random()*30
+    }));
+    ctx.font="22px sans-serif";
+    function step(){
+      ctx.clearRect(0,0,c.width,c.height);
+      parts.forEach(p=>{
+        p.x+=p.vx; p.y+=p.vy; p.life--;
+        ctx.globalAlpha=Math.max(0,p.life/80);
+        ctx.fillText(p.emo,p.x,p.y);
+      });
+      if(parts.some(p=>p.life>0)) requestAnimationFrame(step);
+    }
+    step();
+  }
+</script>
 </body>
-
 </html>
